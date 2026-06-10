@@ -6,9 +6,9 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-# Stage 2: Serve the compiled static assets using Nginx Alpine
+# Stage 2: Serve the compiled static assets using Nginx
 FROM nginx:alpine
-# Copy the compiled Vite distribution files over to Nginx's HTML serving root
+# CRITICAL: This copies the built production files directly to Nginx's HTML folder
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
