@@ -7,18 +7,12 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      injectRegister: 'inline',
-      workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg}'], 
-      },
+      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-able-icon.png'],
       manifest: {
-        name: 'Deeps Systems Mobile Platform',
-        short_name: 'DSPNG Mobile',
-        description: 'Lightweight Mobile Client Platform',
-        theme_color: '#111827',
-        background_color: '#111827',
-        display: 'standalone', 
-        orientation: 'portrait',
+        name: 'Deeps Mobile PWA',
+        short_name: 'DeepsPWA',
+        description: 'My Progressive Web Application',
+        theme_color: '#ffffff',
         icons: [
           {
             src: 'pwa-192x192.png',
@@ -28,8 +22,7 @@ export default defineConfig({
           {
             src: 'pwa-512x512.png',
             sizes: '512x512',
-            type: 'image/png',
-            purpose: 'any maskable'
+            type: 'image/png'
           }
         ]
       }
